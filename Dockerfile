@@ -4,7 +4,7 @@ COPY ./src /app/src
 COPY ./tsconfig.json /app/tsconfig.json
 COPY ./package.json /app/package.json
 COPY ./package-lock.json /app/package-lock.json
-COPY ./typings /app/typings
+COPY ./customTypings /app/customTypings
 
 WORKDIR /app
 
