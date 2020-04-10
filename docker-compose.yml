@@ -1,0 +1,26 @@
+version: "3.7"
+
+networks:
+    web:
+        external:
+            name: shared-web
+
+services: 
+    simple-express:
+        build: .
+        restart: unless-stopped
+        ports:
+            - "8089:8080"
+        networks: 
+            - web
+        volumes:
+            - "./dist/host/test1:/home/node/app/dist/host/t1:ro"
+            - "./dist/host/test2:/home/node/app/dist/host/t2:ro"
+            - "./dist/host/test2:/home/node/app/dist/host/t3:ro"
+        labels:
+            - traefik.enable=true
+            - traefik.http.services.wlf-sync.loadbalancer.server.port=8080
+            - traefik.http.routers.whoami.rule=Host(`t1.wlf.test`) || Host(`t2.wlf.test`)
+#            - traefik.http.routers.whoami.tls=true
+#            - traefik.http.routers.whoami.tls.certresolver=letsenc
+            - traefik.docker.network=shared-web

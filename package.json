@@ -1,0 +1,32 @@
+{
+  "name": "simple-express-subdomain-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "prod": "node .",
+    "prestart": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker": "docker build . --tag wlf-express-local",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wlf-io/simple-express-subdomain-server.git"
+  },
+  "author": "wolfgang <wolfgang@wlf.io>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wlf-io/simple-express-subdomain-server/issues"
+  },
+  "homepage": "https://github.com/wlf-io/simple-express-subdomain-server#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-subdomain": "^1.0.5"
+  }
+}
